@@ -20,8 +20,15 @@ from django.urls import path, include
 from rest_framework import routers
 
 
+
+
+# Routers provide an easy way of automatically determining the URL conf.
+router = routers.DefaultRouter()
+#router.register(r'categories', CategoryViewSet)
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include("rest_framework.urls",
-    	namespace="rest_framework")),
+    #path('api/', include((router.urls, 'app_name'), namespace='instance_name')),
 ]
