@@ -1,5 +1,5 @@
 from django.db import models
-from rest_framework import routers, serializers, viewsets
+from rest_framework import serializers
 
 class Product(models.Model):
 	product_code = models.CharField(max_length=50)
