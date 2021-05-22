@@ -19,15 +19,18 @@ from rest_framework import routers
 
 
 
+from products.views import ProductViewSet
 from categories.views import CategoryViewSet
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
+router.register(r'products', ProductViewSet)
 router.register(r'categories', CategoryViewSet)
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include((router.urls, 'api'), namespace='instance_name')),
+    path('api/', include((router.urls))),
 ]
+
