@@ -1,11 +1,18 @@
 from django.db import models
 from rest_framework import serializers
+from categories.models import Category
+
+
+
 
 class Product(models.Model):
 	product_code = models.CharField(max_length=50)
 	name = models.CharField(max_length=200)
 	price = models.FloatField()
 	quantity = models.FloatField()
+	categories = models.ManyToManyField(Category,
+		null=True, blank=True, on_delete = models.SET_NULL, 
+		related_name='products')
 
 
 # Serializers define the API representation.
